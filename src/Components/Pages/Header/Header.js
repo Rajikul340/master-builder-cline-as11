@@ -1,8 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { UserContext } from '../../AuthContext/AuthContex';
+import {useContext} from 'react';
+
 
 const Header = () => {
 
+    const {user} = useContext(UserContext)
 
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
@@ -27,7 +31,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
-                    <img src={logo} alt="" />
+                
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
