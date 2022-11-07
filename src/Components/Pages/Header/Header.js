@@ -6,7 +6,13 @@ import {useContext} from 'react';
 
 const Header = () => {
 
-    const {user} = useContext(UserContext)
+    const {user,logOut} = useContext(UserContext);
+
+    const handleLogOut = () =>{
+        logOut()
+        .then()
+        .catch()
+    }
 
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
@@ -14,6 +20,8 @@ const Header = () => {
         user?.email ? 
         <>
         <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
+        <li className='font-semibold'><button onClick={handleLogOut} className=''>signout</button></li>
+        
         </>
         :
         <li className='font-semibold'><Link to='/login'>Login</Link></li>
@@ -30,18 +38,18 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl">
-                
+                <Link to="/" className="btn btn-ghost uppercase font-bold italic text-4xl">
+                      <h1>master builder</h1>
                 </Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button className="btn btn-outline btn-warning">Appointment</button>
-            </div>
+            {/* <div className="navbar-end">
+               
+            </div> */}
         </div>
     );
 };
