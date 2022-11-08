@@ -16,14 +16,20 @@ const Header = () => {
 
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
+    <li className='font-semibold'><Link to='/service'>services</Link></li>
     
     
     {
         user?.email ? 
         <>
-        <li className='font-semibold'><Link to='/orders'>my review</Link></li>
-        <li className='font-semibold'><Link to='/service'>add service</Link></li>
+        <li className='font-semibold'><Link to='/myreviews'>my review</Link></li>
+        <li className='font-semibold'><Link to='/addservice'>add service</Link></li>
         <li className='font-semibold'><button onClick={handleLogOut} className=''>signout</button></li>
+
+          {/* <li className='font-semibold'>{user?.displayName}</li> */}
+          <li className='font-semibold rounded'>{
+             <img src={user?.photoURL ? user?.photoURL : ""} className='w-16 rounded' alt="" />
+          }</li>
         
         </>
         :
@@ -31,7 +37,7 @@ const Header = () => {
     }
 </>
     return (
-        <div className="navbar h-20 mb-12 pt-12 bg-base-100">
+        <div className="navbar h-20 mb-12 pt-12 bg-base-100 shadow-lg">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -49,11 +55,14 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
+                <hr />
             </div>
             {/* <div className="navbar-end">
                
             </div> */}
+               
         </div>
+  
     );
 };
 

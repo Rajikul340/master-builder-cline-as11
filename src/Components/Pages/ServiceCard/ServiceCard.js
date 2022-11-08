@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 var Rating = require('react-rating');
 
 const ServiceCard = ({ service }) => {
-  console.log(service);
+ 
   const { Price, img, description, _id, title, ratings } = service;
 
   return (
