@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthContex from './Components/AuthContext/AuthContex';
+import 'react-photo-view/dist/react-photo-view.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
