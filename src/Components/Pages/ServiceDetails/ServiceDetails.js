@@ -25,7 +25,8 @@ const ServiceDetails = () => {
         customer: name,
         email,
         rating,
-        message
+        message,
+        img:user?.photoURL,
     }
     fetch('http://localhost:5000/reviews',{
         method:"POST",
@@ -80,10 +81,10 @@ const ServiceDetails = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" />
                     <input name="lastName" type="text" placeholder="Last Name" className="input input-ghost w-full  input-bordered" />
-                    <input name="rating" type="text" placeholder="rating" className="input input-ghost w-full  input-bordered" required />
+                    <input name="rating" type="number" placeholder="rating" className="input input-ghost w-full  input-bordered" required />
                     <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                 </div>
-                <textarea name="message" className="textarea textarea-bordered h-96 w-full" placeholder="Your Message" required></textarea>
+                <textarea name="message" className="textarea textarea-bordered h-96 w-full mt-2" placeholder="Your Message" required></textarea>
 
                 <input className='btn btn-outline btn-primary' type="submit" value=" review" />
             </form>
