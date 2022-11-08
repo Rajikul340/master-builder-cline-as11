@@ -11,9 +11,9 @@ const Service = () => {
         fetch('http://localhost:5000/services')
         .then(res=>res.json())
         .then(data=>{
-            // console.log(data);
+            console.log(data.length);
             setServices(data)
-            
+
         })
     },[])
 
@@ -29,9 +29,9 @@ const Service = () => {
                 }
             </div>
 
-         <div className="text-right mb-5">
+         {/* <div className="text-right mb-5">
                  <Link to='/service'> <button className="btn btn-outline btn-primary px-5">See All</button></Link>
-         </div>
+         </div> */}
         </div>
     );
 };
