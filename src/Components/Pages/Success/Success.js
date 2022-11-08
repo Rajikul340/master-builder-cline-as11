@@ -42,4 +42,3 @@ const Success = () => {
 
 export default Success;
 
-//<a href="https://ibb.co/RCJTfrg"><img src="https://i.ibb.co/hKTFbQg/why-choose-us1.jpg" alt="why-choose-us1" border="0"></a>
