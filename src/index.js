@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthContex from './Components/AuthContext/AuthContex';
 import 'react-photo-view/dist/react-photo-view.css';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +15,7 @@ root.render(
   <AuthContex>
   <App />
   </AuthContex>
+  <ToastContainer />
   </React.StrictMode>
 );
 

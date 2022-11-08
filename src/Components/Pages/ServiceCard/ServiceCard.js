@@ -1,6 +1,7 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
+var Rating = require('react-rating');
 
 const ServiceCard = ({ service }) => {
   console.log(service);
@@ -22,6 +23,7 @@ const ServiceCard = ({ service }) => {
           <div className="flex gap-5">
             <p className="font-bold">Price: ${Price}</p>
             <p className="font-bold">Ratings :{ratings}</p>
+  
           </div>
           <div className="card-actions">
            <Link to={`/service/${_id}`}> <button className="btn btn-primary">See Details</button></Link>
