@@ -16,3 +16,6 @@
   .outletHight{
     min-height: 100vh;
   }
+ .imgSize{
+   height: 70vh;  
+ }
