@@ -2,7 +2,7 @@ import React from 'react';
 import banner1 from '../../../image/blog-grid-1.jpg';
 import banner2 from '../../../image/banner-1.jpg';
 import banner3 from '../../../image/banner-2.jpg';
-import './Banner.css'
+import '../Style/Style.css'
 
 const Banner = () => {
     return (

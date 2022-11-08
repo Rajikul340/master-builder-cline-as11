@@ -13,3 +13,6 @@
     width: 1300px;
 
   }
+  .outletHight{
+    min-height: 100vh;
+  }

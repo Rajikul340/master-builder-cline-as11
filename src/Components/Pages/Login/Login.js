@@ -45,7 +45,7 @@ const Login = () => {
 
             <div className='text-center mt-5'>
 
-                <p className='text-center'>already have an account please <Link to='/register' className='text-red-300 underline'>register</Link></p>
+                <p className='text-center'>create a new account please <Link to='/register' className='text-red-300 underline'>register</Link></p>
             </div>
 
             <div className='text-center my-3 '>
