@@ -7,7 +7,7 @@ import logo4 from '../../../image/download (6).svg'
 
 const Success = () => {
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: `url("https://i.ibb.co/hKTFbQg/why-choose-us1.jpg")` }}>
+        <div className="hero" style={{ backgroundImage: `url("https://i.ibb.co/hKTFbQg/why-choose-us1.jpg")` }}>
 
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content  text-neutral-content">
