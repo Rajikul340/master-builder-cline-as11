@@ -8,7 +8,7 @@ import useTitle from "../useTitle/useTitle";
 const MyReviews = () => {
   const { user, logOut } = useContext(UserContext);
   const [reviews, setReviews] = useState([]);
-  console.log(reviews);
+  // console.log(reviews);
   useTitle("my-reviews");
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const MyReviews = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setReviews(data);
       });
   }, [user?.email]);
@@ -44,6 +44,7 @@ const MyReviews = () => {
         });
     }
   };
+  
 
   return (
     <div>

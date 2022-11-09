@@ -52,14 +52,16 @@ export const router = createBrowserRouter([
                 path:'/blog',
                 element:<Blogs></Blogs>
             },
-            {
-                path:'/updateReview',
-                element:<UpdateReviews></UpdateReviews>
-            },
             // {
             //     path:'/reviews/:id',
-                
-            //     element:<Messages></Messages>
+            //     element:<UpdateReviews></UpdateReviews>,
+            //     loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+            // },
+            // {
+            //     path:'/reviews/:id',
+            //     element:<UpdateReviews></UpdateReviews>,
+            //     
+            
             // }
         ]
     }

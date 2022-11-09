@@ -6,9 +6,11 @@ import { UserContext } from "../../AuthContext/AuthContex";
 import PrivateRoute from "../../Routes/PrivateRoute";
 import Messages from "../Messages/Messages";
 
+
 const ServiceDetails = () => {
   const ServiceDetails = useLoaderData();
   const { description, img, Price, _id } = ServiceDetails;
+  console.log('servieid',_id);
   const { title, body } = description[0];
   const { user } = useContext(UserContext);
   const[allReviews, setAllReviews] =useState([]);
@@ -18,18 +20,20 @@ const ServiceDetails = () => {
          fetch('http://localhost:5000/reviews')
          .then(res=>res.json())
          .then(data=>{
-         
-        
-          const Rdata = data.filter(RevId =>RevId.serviceId === _id)
+          const Rdata = data.filter(RevId =>RevId.serviceId === _id);
+          console.log('reviewid',Rdata.serviceId);
           console.log(Rdata);
 
           setAllReviews(Rdata)
 
          }) 
      },[])
+
+
  
 
   const handleReviews = (event) => {
+    
     event.preventDefault();
     const form = event.target;
     // const name = `${form.firstName.value} ${form.lastName.value}`;
@@ -105,20 +109,12 @@ const ServiceDetails = () => {
             required
           ></textarea>
 
-          {user?.email ? (
-            <button className="btn btn-outline btn-primary" type="submit">
-              Review
+           <button className="btn btn-outline btn-primary" type="submit">
+                  {
+                    user?.email ?  <button type="submit">  Review</button>   : <Link to='/login'>   please login first  </Link>
+                  }
             </button>
-          ) : (
-            <>
-              <PrivateRoute>
-                {" "}
-                <button className="btn btn-outline btn-primary" type="submit">
-                  Review
-                </button>
-              </PrivateRoute>
-            </>
-          )}
+
         </form>
       </section>
 
