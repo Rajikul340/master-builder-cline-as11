@@ -1,8 +1,9 @@
 import React from 'react';
+import useTitle from '../useTitle/useTitle';
 
 const Footer = () => {
 
-
+       useTitle('footer')
     return (
         <footer className="footer p-10 bg-base-200 text-base-content fixed-bottom">
         <div>

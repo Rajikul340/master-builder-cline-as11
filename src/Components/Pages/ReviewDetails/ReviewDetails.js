@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const ReviewDetails = ({reviews,handleDelete,handleStatusUpdate}) => {
     console.log(reviews);
@@ -36,9 +37,9 @@ const ReviewDetails = ({reviews,handleDelete,handleStatusUpdate}) => {
             </td>
            
             <th>
-                <button 
+              <Link to='/updateReview'>  <button 
                 onClick={() => handleStatusUpdate(_id)}
-                className="btn btn-ghost btn-xs">{status ? status : 'updated'}</button>
+                className="btn btn-ghost btn-xs">{status ? status : 'updated'}</button></Link>
             </th>
         </tr>
      

@@ -1,6 +1,10 @@
 import React from "react";
+import useTitle from "../useTitle/useTitle";
 
 const Blogs = () => {
+
+
+  useTitle('Blogs')
   return (
     <div className="m-5">
       <h1 className="text-center uppercase lg:text-4xl text-xl font-bold my-4">
@@ -81,6 +85,7 @@ const Blogs = () => {
           3.What is the difference between javascript and NodeJS?
         </h2>
         <p>
+        <div className="overflow-x-auto">
           <table className="table w-full">
             <thead className="">
               <tr>
@@ -124,12 +129,13 @@ const Blogs = () => {
               </tr>
             </tbody>
           </table>
+          </div>
         </p>
       </div>
 
       <div>
         <h2 className="lg:text-2xl font-semibold capitalize my-4">
-          How does NodeJS handle multiple requests at the same time?
+        4. How does NodeJS handle multiple requests at the same time?
         </h2>
         <p>
           NodeJS receives multiple client requests and places them into

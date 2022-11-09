@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../AuthContext/AuthContex";
 import { useContext } from "react";
+import useTitle from "../useTitle/useTitle";
 
 const Header = () => {
   const { user, logOut } = useContext(UserContext);
-
+  useTitle('header')
   const handleLogOut = () => {
     logOut().then().catch();
   };
@@ -42,7 +43,7 @@ const Header = () => {
             {
               <img
                 src={user?.photoURL ? user?.photoURL : ""}
-                className="w-16 rounded"
+                className="w-16 rounded-full"
                 alt=""
               />
             }

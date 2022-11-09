@@ -4,17 +4,35 @@ import { useContext } from "react";
 import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../../image/googlelogo.png";
+import useTitle from "../useTitle/useTitle";
 
 const Login = () => {
   const { emailLogin, googleLogin } = useContext(UserContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-
+  useTitle('login')
   const googleLoginBtn = () => {
+
     googleLogin()
       .then((result) => {
         const user = result.user;
+        const currentUser={
+          email:user?.email
+        }
+        // fetch('http://localhost:5000/jwt',{
+        //   method:"POST",
+        //   headers:{
+        //     'content-type' : 'application/json'
+        //   },
+        //   body: JSON.stringify(currentUser)
+        // })
+        // .then(res=>res.json())
+        // .then(data =>{
+        //   console.log(data);
+      
+        //   localStorage.setItem('token', data.token)
+        // })
         console.log(user);
         toast.success("login successfully");
         navigate('/');
@@ -32,6 +50,23 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        const currentUser={
+          email:user?.email
+        }
+        console.log(user);
+        // fetch('http://localhost:5000/jwt',{
+        //   method:"POST",
+        //   headers:{
+        //     'content-type' : 'application/json'
+        //   },
+        //   body: JSON.stringify(currentUser)
+        // })
+        // .then(res=>res.json())
+        // .then(data =>{
+        //   console.log(data);
+      
+        //   localStorage.setItem('token', data.token)
+        // })
         toast.success("login successfully");
         navigate(from, { replace: true });
       })

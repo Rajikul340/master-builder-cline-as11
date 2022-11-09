@@ -9,7 +9,7 @@ export const UserContext =createContext();
 const auth=getAuth(app)
 
 const AuthContex = ({children}) => {
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState(null);
     const[loader,setLoader] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const emailLogin =(email, password)=>{
@@ -27,6 +27,7 @@ const AuthContex = ({children}) => {
     }
     const logOut = ()=>{
         // setLoader(true)
+        // localStorage.removeItem('token');
         return signOut(auth)
     }
 

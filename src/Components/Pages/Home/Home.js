@@ -6,10 +6,11 @@ import TeamSection from "../TeamSection/TeamSection";
 import { useEffect, useState } from "react";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import { Link } from "react-router-dom";
+import useTitle from "../useTitle/useTitle";
 
 const Home = () => {
   const [services, setServices] = useState([]);
-
+  useTitle('home')
   useEffect(() => {
     fetch("http://localhost:5000/home")
       .then((res) => res.json())
