@@ -19,7 +19,7 @@ const ServiceCard = ({ service }) => {
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>
-         <p>{`${description[0]?.body?.slice(0,100)} ...`}</p>
+         <p>{`${description[0]?.body ? description[0]?.body?.slice(0, 100) + "..." : ' '} `}</p>
           <div className="flex gap-5">
             <p className="font-bold">Price: ${Price}</p>
             <p className="font-bold">Ratings :{ratings}</p>

@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../AuthContext/AuthContex';
 
+
 const PrivateRoute = ({children}) => {
-    const {user, loading} = useContext(UserContext);
+    const {user, loader} = useContext(UserContext);
     const location  = useLocation();
 
-    if(loading) {
+    if(loader) {
         return <h1 className='text-xl'>Loading...</h1>
     }
 

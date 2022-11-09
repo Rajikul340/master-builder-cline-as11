@@ -7,11 +7,14 @@ import Service from '../Pages/Service/Service';
 import ServiceDetails from '../Pages/ServiceDetails/ServiceDetails';
 import MyReviews from '../Pages/MyReviews/MyReviews'
 import PrivateRoute from '../Pages/../Routes/PrivateRoute'
+import ErrorPage from '../Pages/ErrorPage/ErrorPage'
+import  AddService  from "../Pages/AddService/AddService";
 
 export const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement :<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
@@ -38,6 +41,10 @@ export const router = createBrowserRouter([
             {
                 path:'/myreviews',
                 element:<PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+            },
+            {
+                path:"/addservice",
+                element:<PrivateRoute><AddService></AddService></PrivateRoute>
             }
         ]
     }

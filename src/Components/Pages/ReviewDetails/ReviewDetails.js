@@ -24,21 +24,21 @@ const ReviewDetails = ({reviews,handleDelete,handleStatusUpdate}) => {
                         </div>
                     </div>
                     <div>
-                        <div className="font-bold">{customer}</div>
-                        <div className="text-sm opacity-50">{email}</div>
+                        <div className="font-bold">{serviceName}</div>
+                        <div className="text-sm opacity-50"> Price: ${Price}</div>
                     </div>
                 </div>
             </td>
             <td>
-                {serviceName}
+                {customer}
                 <br />
-                <span className="badge badge-ghost badge-sm">Price: ${Price}</span>
+                <span className="badge badge-ghost badge-sm">{email}</span>
             </td>
-            <td>Purple</td>
+           
             <th>
                 <button 
                 onClick={() => handleStatusUpdate(_id)}
-                className="btn btn-ghost btn-xs">{status ? status : 'pending'}</button>
+                className="btn btn-ghost btn-xs">{status ? status : 'updated'}</button>
             </th>
         </tr>
      

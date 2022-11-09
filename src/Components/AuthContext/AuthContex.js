@@ -26,7 +26,7 @@ const AuthContex = ({children}) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const logOut = ()=>{
-        setLoader(true)
+        // setLoader(true)
         return signOut(auth)
     }
 
@@ -35,9 +35,9 @@ const AuthContex = ({children}) => {
             setUser(currentUser)
             setLoader(false)
         
-        })
+        });
         return ()=>{
-            unSubscribe();
+           return unSubscribe();
         }
 
     },[])

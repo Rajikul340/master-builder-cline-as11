@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import {useContext} from 'react';
 import { toast } from "react-toastify";
-import { UserContext } from "../../AuthContext/AuthContex";
+import  {UserContext}  from "../../AuthContext/AuthContex";
+import PrivateRoute from "../../Routes/PrivateRoute";
 
 const ServiceDetails = () => {
   const ServiceDetails = useLoaderData();
@@ -26,7 +27,7 @@ const ServiceDetails = () => {
         email,
         // rating,
         message,
-        img:user?.photoURL,
+        img,
     }
     fetch('http://localhost:5000/reviews',{
         method:"POST",
@@ -39,7 +40,7 @@ const ServiceDetails = () => {
       .then(data => {
           console.log(data)
           if(data.acknowledged){
-            //   alert('Order placed successfully')
+          
               toast.success('review added')
               form.reset();
               
@@ -65,7 +66,7 @@ const ServiceDetails = () => {
         <div className="w-6/12 mx-auto">
           <img src={img} alt="" />
           <p>
-            <small>{ServiceDetails.title}</small>
+            <small>{ServiceDetails?.title}</small>
           </p>
         </div>
         <div className="w-6/12 mx-auto">
@@ -90,9 +91,9 @@ const ServiceDetails = () => {
                 user?.email ?
          
                 <button className='btn btn-outline btn-primary' type="submit" >Review</button>
-                : <><Link to='/login'>
-                   <button className='btn btn-outline btn-primary' type="submit" >Review</button>
-                  </Link></>
+                : <>
+                  <PrivateRoute> <button className='btn btn-outline btn-primary' type="submit" >Review</button></PrivateRoute>
+                 </>
                }
             </form>
 
