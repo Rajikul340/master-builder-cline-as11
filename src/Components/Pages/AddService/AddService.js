@@ -68,6 +68,7 @@ const AddService = () => {
           type="text"
           placeholder="service image"
           className="input input-ghost w-full  input-bordered"
+          required
         />
 
         {/* <textarea

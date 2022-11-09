@@ -41,8 +41,8 @@ const Login = () => {
   };
 
   return (
-    <div className="mx-auto w-5/12 mb-4 border">
-      <h3 className="text-center text-3xl font-bold capitalize">
+    <div className="mx-auto lg:w-5/12 mb-4 border">
+      <h3 className="text-center lg:text-3xl font-bold capitalize">
         Please LogIn
       </h3>
 
@@ -68,7 +68,7 @@ const Login = () => {
 
         <button
           type="submit"
-          className=" btn btn-outline lg:w-64 lg:ml-20 mt-5"
+          className=" btn btn-outline btn-primary w-64 lg:ml-20 mt-5"
         >
           Login
         </button>
@@ -82,10 +82,10 @@ const Login = () => {
           </p>
         </div>
 
-        <div className=" my-3 w-96  ">
-          <button onClick={googleLoginBtn} className="flex lg:gap-24 lg:ml-20 border rounded-xl">
+        <div className=" my-3 w-80  ">
+          <button onClick={googleLoginBtn} className="flex gap-12 align-middle lg:ml-20 border border-blue-700 rounded-xl">
             <img src={logo} className="lg:w-14 w-6 border rounded-box " alt="" />
-            <p className="font-bold lg:text-xl capitalize"> google login</p>
+            <p className="font-bold lg:text-xl capitalize mr-2 lg:mt-1"> google login</p>
           </button>
         </div>
       </form>

@@ -34,8 +34,8 @@ const Register = () => {
 
 
     return (
-        <div className='mx-auto w-5/12 mb-4 border'>
-            <h3 className='text-center text-3xl font-bold capitalize'>Please Register</h3>
+        <div className='mx-auto lg:w-5/12 mb-4 border'>
+            <h3 className='text-center lg:text-3xl font-bold capitalize'>Please Register</h3>
             <form className=' p-4 ' onSubmit={handleSubmit}>
 
                 <label htmlFor="name">Name</label>
@@ -50,7 +50,7 @@ const Register = () => {
 
 
              
-               <button type='submit' className=' btn btn-outline lg:w-48 lg:ml-20 mt-5   '>Register</button>
+               <button type='submit' className=' btn btn-outline btn-primary w-48 ml-20 mt-5   '>Register</button>
             
 
                 <div className='text-center mt-5'>

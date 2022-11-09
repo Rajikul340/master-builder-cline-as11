@@ -46,8 +46,8 @@ console.log(reviews);
   return (
     <div>
     {/* <h2 className="text-5xl">You have {reviews.length} Orders</h2> */}
-    <div className="overflow-x-auto w-full">
-        <table className="table w-full">
+    <div className="overflow-x-auto lg:w-full">
+        <table className="table lg:w-full">
            {
             reviews.length === 0 ? <p className="text-center font-semibold">no review found. please review</p> : <> <thead>
             <tr>

@@ -17,10 +17,10 @@ const ReviewDetails = ({reviews,handleDelete,handleStatusUpdate}) => {
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
-                        <div className="rounded w-24 h-24">
+                        <div className="rounded  w-12 sm:h-12">
                             {
                                 reviews?.img && 
-                                <img src={reviews?.img} alt="photo" className='rounded' />}
+                                <img src={reviews?.img} alt="photo" className='' />}
                         </div>
                     </div>
                     <div>
