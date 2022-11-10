@@ -17,10 +17,10 @@ const Messages = ({ Reviews, setLoad }) => {
           src={image}
           alt=""
         />
-        <p className="mt-3">{customer}</p>
+        <p className="mt-3">{customer}  <small className="font-bold">{time}</small></p>
       </div>
       <p>
-        comments: {revMessage} <small>{time}</small>
+        comments: {revMessage}
       </p>
     </div>
   );

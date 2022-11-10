@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContex';
 import { toast } from "react-toastify";
 import useTitle from '../useTitle/useTitle';
@@ -10,6 +10,8 @@ import { Snniper } from '../Snniper/Snniper';
 const Register = () => {
     const{createUser, handleUpdate} = useContext(UserContext);
     const[loader, setLoader] =useState(false)
+    const navigate = useNavigate();
+    const[error, setError] = useState('')
       useTitle('register')
 
     const handleSubmit = event =>{
@@ -28,10 +30,16 @@ const Register = () => {
           console.log(user);
           handelprofileUpdate(name, photoURL)
           setLoader(false)
+          navigate('/')
             form.reset();
             toast.success('Register successfully')
         })
-        .catch(err=> console.error(err))
+        .catch(err=> {
+            const errorMessage =err.message;
+            setError(errorMessage)
+            console.log(err);
+
+        })
     }
 
     const handelprofileUpdate = (name, photoURL) =>{
@@ -54,7 +62,7 @@ const content = loader && <Snniper/>
     return (
        <div>
         {
-            content
+            error ? <p className='text-center text'>{error}</p> : content
         }
          <div className='mx-auto lg:w-5/12 mb-4 border'>
             <h3 className='text-center lg:text-3xl font-bold capitalize'>Please Register</h3>
@@ -90,6 +98,9 @@ const content = loader && <Snniper/>
             </form>
 
         </div>
+        {
+           
+        }
        </div>
     );
 };
