@@ -3,8 +3,8 @@ import { toast } from "react-toastify";
 import useTitle from "../useTitle/useTitle";
 
 const AddService = () => {
-  useTitle('addservice');
-  
+  useTitle("addservice");
+
   const handleAddService = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,9 +17,9 @@ const AddService = () => {
 
     const servce = {
       title: serviceName,
-       Price,
-       ratings,
-      description: [{title:''}],
+      Price,
+      ratings,
+      description: [{ title: "" }],
       img,
     };
     fetch("http://localhost:5000/services", {

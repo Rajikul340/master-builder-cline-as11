@@ -8,20 +8,18 @@ import useTitle from "../useTitle/useTitle";
 import { Snniper } from "../Snniper/Snniper";
 
 const Login = () => {
-
   const { emailLogin, googleLogin } = useContext(UserContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  useTitle('login')
+  useTitle("login");
   const googleLoginBtn = () => {
-
     googleLogin()
       .then((result) => {
         const user = result.user;
-        const currentUser={
-          email:user?.email
-        }
+        const currentUser = {
+          email: user?.email,
+        };
         // fetch('http://localhost:5000/jwt',{
         //   method:"POST",
         //   headers:{
@@ -32,18 +30,17 @@ const Login = () => {
         // .then(res=>res.json())
         // .then(data =>{
         //   console.log(data);
-      
+
         //   localStorage.setItem('token', data.token)
         // })
         console.log(user);
         toast.success("login successfully");
-        navigate('/');
+        navigate("/");
       })
       .catch();
   };
 
   const handleLogin = (event) => {
-   
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -53,11 +50,10 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-       
-        const currentUser={
-          email:user?.email
 
-        }
+        const currentUser = {
+          email: user?.email,
+        };
         console.log(user);
         // fetch('http://localhost:5000/jwt',{
         //   method:"POST",
@@ -69,7 +65,7 @@ const Login = () => {
         // .then(res=>res.json())
         // .then(data =>{
         //   console.log(data);
-      
+
         //   localStorage.setItem('token', data.token)
         // })
         toast.success("login successfully");
@@ -79,17 +75,13 @@ const Login = () => {
         console.log(err);
       });
   };
- 
 
   return (
-    
     <div className="mx-auto lg:w-5/12 mb-4 border">
       <h3 className="text-center lg:text-3xl font-bold capitalize">
         Please LogIn
       </h3>
-      
-         
-     
+
       <form className=" p-4 " onSubmit={handleLogin}>
         <label htmlFor="name">Email</label>
         <br />
@@ -98,8 +90,8 @@ const Login = () => {
           name="email"
           placeholder="email"
           className="border p-3 rounded-md w-5/6"
-        />  
-                <br />
+        />
+        <br />
         <label htmlFor="name">password</label>
         <br />
         <input
@@ -127,9 +119,19 @@ const Login = () => {
         </div>
 
         <div className=" my-3 w-80  ">
-          <button onClick={googleLoginBtn} className="flex gap-12 align-middle lg:ml-20 border border-blue-700 rounded-xl">
-            <img src={logo} className="lg:w-14 w-6 border rounded-box " alt="" />
-            <p className="font-bold lg:text-xl capitalize mr-2 lg:mt-1"> google login</p>
+          <button
+            onClick={googleLoginBtn}
+            className="flex gap-12 align-middle lg:ml-20 border border-blue-700 rounded-xl"
+          >
+            <img
+              src={logo}
+              className="lg:w-14 w-6 border rounded-box "
+              alt=""
+            />
+            <p className="font-bold lg:text-xl capitalize mr-2 lg:mt-1">
+              {" "}
+              google login
+            </p>
           </button>
         </div>
       </form>

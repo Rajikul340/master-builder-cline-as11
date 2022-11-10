@@ -2,9 +2,7 @@ import React from "react";
 import useTitle from "../useTitle/useTitle";
 
 const Blogs = () => {
-
-
-  useTitle('Blogs')
+  useTitle("Blogs");
   return (
     <div className="m-5">
       <h1 className="text-center uppercase lg:text-4xl text-xl font-bold my-4">
@@ -85,57 +83,57 @@ const Blogs = () => {
           3.What is the difference between javascript and NodeJS?
         </h2>
         <p>
-        <div className="overflow-x-auto">
-          <table className="table w-full">
-            <thead className="">
-              <tr>
-                <th>JAVASCRIPT</th>
+          <div className="overflow-x-auto">
+            <table className="table w-full">
+              <thead className="">
+                <tr>
+                  <th>JAVASCRIPT</th>
 
-                <th>NODEJS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  Javascript is a programming language that is used for writing
-                  scripts on the website.{" "}
-                </td>
-                <td>NodeJS is a Javascript runtime environment..</td>
-              </tr>
-              <tr>
-                <td>Javascript can only be run in the browsers.</td>
-                <td>
-                  We can run Javascript outside the browser with the help of
-                  NodeJS
-                </td>
-              </tr>
-              <tr>
-                <td>It is basically used on the client-side.</td>
-                <td>It is mostly used on the server-side.</td>
-              </tr>
-              <tr>
-                <td>
-                  Javascript is capable enough to add HTML and play with the
-                  DOM.{" "}
-                </td>
-                <td>Nodejs does not have capability to add HTML tags.</td>
-              </tr>
-              <tr>
-                <td>
-                  It is the upgraded version of ECMA script that uses Chrome’s
-                  V8 engine written in C++.
-                </td>
-                <td>Nodejs is written in C, C++ and Javascript.</td>
-              </tr>
-            </tbody>
-          </table>
+                  <th>NODEJS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Javascript is a programming language that is used for
+                    writing scripts on the website.{" "}
+                  </td>
+                  <td>NodeJS is a Javascript runtime environment..</td>
+                </tr>
+                <tr>
+                  <td>Javascript can only be run in the browsers.</td>
+                  <td>
+                    We can run Javascript outside the browser with the help of
+                    NodeJS
+                  </td>
+                </tr>
+                <tr>
+                  <td>It is basically used on the client-side.</td>
+                  <td>It is mostly used on the server-side.</td>
+                </tr>
+                <tr>
+                  <td>
+                    Javascript is capable enough to add HTML and play with the
+                    DOM.{" "}
+                  </td>
+                  <td>Nodejs does not have capability to add HTML tags.</td>
+                </tr>
+                <tr>
+                  <td>
+                    It is the upgraded version of ECMA script that uses Chrome’s
+                    V8 engine written in C++.
+                  </td>
+                  <td>Nodejs is written in C, C++ and Javascript.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </p>
       </div>
 
       <div>
         <h2 className="lg:text-2xl font-semibold capitalize my-4">
-        4. How does NodeJS handle multiple requests at the same time?
+          4. How does NodeJS handle multiple requests at the same time?
         </h2>
         <p>
           NodeJS receives multiple client requests and places them into

@@ -6,7 +6,7 @@ import useTitle from "../useTitle/useTitle";
 
 const Header = () => {
   const { user, logOut } = useContext(UserContext);
-  useTitle('header')
+  useTitle("header");
   const handleLogOut = () => {
     logOut().then().catch();
   };

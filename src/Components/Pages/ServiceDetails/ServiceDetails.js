@@ -32,7 +32,9 @@ const ServiceDetails = () => {
     const form = event.target;
     const email = user?.email || "unregistered";
     const message = form.message.value;
-
+    const current= new Date();
+    const time = current.toLocaleTimeString("en-US");
+    const date = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
     const review = {
       serviceId: _id,
       serviceName: ServiceDetails?.title,
@@ -41,6 +43,8 @@ const ServiceDetails = () => {
       email,
       message,
       image:user?.photoURL,
+      time, 
+      date
     };
 
     fetch("http://localhost:5000/reviews", {

@@ -10,7 +10,7 @@ import useTitle from "../useTitle/useTitle";
 
 const Home = () => {
   const [services, setServices] = useState([]);
-  useTitle('home')
+  useTitle("home");
   useEffect(() => {
     fetch("http://localhost:5000/home")
       .then((res) => res.json())
