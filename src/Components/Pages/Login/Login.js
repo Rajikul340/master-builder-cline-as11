@@ -1,12 +1,14 @@
 import React from "react";
 import { UserContext } from "../../AuthContext/AuthContex";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../../image/googlelogo.png";
 import useTitle from "../useTitle/useTitle";
+import { Snniper } from "../Snniper/Snniper";
 
 const Login = () => {
+
   const { emailLogin, googleLogin } = useContext(UserContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,6 +43,7 @@ const Login = () => {
   };
 
   const handleLogin = (event) => {
+   
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -50,8 +53,10 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+       
         const currentUser={
           email:user?.email
+
         }
         console.log(user);
         // fetch('http://localhost:5000/jwt',{
@@ -74,13 +79,17 @@ const Login = () => {
         console.log(err);
       });
   };
+ 
 
   return (
+    
     <div className="mx-auto lg:w-5/12 mb-4 border">
       <h3 className="text-center lg:text-3xl font-bold capitalize">
         Please LogIn
       </h3>
-
+      
+         
+     
       <form className=" p-4 " onSubmit={handleLogin}>
         <label htmlFor="name">Email</label>
         <br />
@@ -89,8 +98,8 @@ const Login = () => {
           name="email"
           placeholder="email"
           className="border p-3 rounded-md w-5/6"
-        />
-        <br />
+        />  
+                <br />
         <label htmlFor="name">password</label>
         <br />
         <input

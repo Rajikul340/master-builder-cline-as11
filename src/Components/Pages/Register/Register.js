@@ -7,28 +7,48 @@ import useTitle from '../useTitle/useTitle';
 
 
 const Register = () => {
-    const{createUser} = useContext(UserContext);
+    const{createUser, handleUpdate} = useContext(UserContext);
     const[error, setError] = useState('');
       useTitle('register')
+
     const handleSubmit = event =>{
-        
-        event.preventDefault();
+       event.preventDefault();
         const form = event.target ;
         const name = form.name.value ;
         const email = form.email.value;
+        const photoURL = form.photoURL.value
         const password = form.password.value ;
-        console.log(email , password);
-
+        console.log(email , password, name, photoURL);
+       
         createUser(email, password)
         .then(result =>{
             const user=result.user ;
-          
+          console.log(user);
+          handelprofileUpdate(name, photoURL)
             form.reset();
             toast.success('Register successfully')
         })
         .catch(err=>{
             setError(err)
 
+        })
+    }
+
+    const handelprofileUpdate = (name, photoURL) =>{
+
+        const profile ={
+          displayName:name,
+          photoURL:photoURL,
+        };
+
+         handleUpdate(profile)
+        .then((result)=>{
+            const user=result.user ;
+            console.log(user);
+        })
+        .catch(err=>{
+           
+                console.log(error);
         })
     }
 
@@ -42,6 +62,10 @@ const Register = () => {
                 <label htmlFor="name">Name</label>
                 <br />
                 <input type="text" name='name' placeholder="name" className=" border p-3 rounded-md w-5/6 " /><br />
+                <label htmlFor="name">PhotoURL</label>
+                <br />
+                <input type="text" name='photoURL' placeholder="PhotoURL" className=" border p-3 rounded-md w-5/6 " /><br />
+
                 <label htmlFor="name">Email</label>
                 <br />
                 <input type="email" name='email' placeholder="email" className="border p-3 rounded-md w-5/6" required /><br />

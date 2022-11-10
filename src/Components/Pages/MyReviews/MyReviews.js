@@ -4,14 +4,17 @@ import { useContext, useState, useEffect } from "react";
 import ReviewDetails from "../ReviewDetails/ReviewDetails";
 import { toast } from "react-toastify";
 import useTitle from "../useTitle/useTitle";
+import { Snniper } from "../Snniper/Snniper";
 
 const MyReviews = () => {
   const { user, logOut } = useContext(UserContext);
   const [reviews, setReviews] = useState([]);
+  
   // console.log(reviews);
   useTitle("my-reviews");
 
   useEffect(() => {
+  
     fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
       // headers: {
       //   authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -21,6 +24,7 @@ const MyReviews = () => {
       .then((data) => {
         // console.log(data);
         setReviews(data);
+       
       });
   }, [user?.email]);
 
@@ -70,7 +74,9 @@ const MyReviews = () => {
             </>
           )}
           <tbody>
-            {reviews.map((reviews) => (
+            { 
+            
+            reviews.map((reviews) => (
               <ReviewDetails
                 key={reviews._id}
                 reviews={reviews}

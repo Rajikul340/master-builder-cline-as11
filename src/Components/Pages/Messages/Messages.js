@@ -3,21 +3,20 @@ import { UserContext } from '../../AuthContext/AuthContex';
 import { FaBeer, FaUser } from 'react-icons/fa';
 
 
-const Messages = ({Reviews}) => {
+const Messages = ({Reviews, setLoad}) => {
   const{user} =useContext(UserContext);
     // console.log(Reviews);
-  const{serviceId, price, message} =Reviews;
+  const{serviceId, price, message, image,customer} =Reviews;
  
   const[revMessage, setRevMessage] = useState(message)
    console.log(revMessage);
-         
+        
 
     return (
       <div>
        <div className='flex gap-2 my-2 '>
-        <img className='w-10 rounded-full' referrerPolicy='no-referrer' src={user?.photoURL ? user?.photoURL : <FaUser></FaUser>} alt="" />
-       <p  className='mt-3'>{user?.displayName}</p>
-    
+        <img className='w-10 rounded-full' referrerPolicy='no-referrer' src={image}  alt="" />
+       <p  className='mt-3'>{customer}</p>
        </div>
        <p>comments: {revMessage}</p>
       </div>

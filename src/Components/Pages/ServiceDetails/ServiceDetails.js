@@ -6,39 +6,31 @@ import { UserContext } from "../../AuthContext/AuthContex";
 import PrivateRoute from "../../Routes/PrivateRoute";
 import Messages from "../Messages/Messages";
 
-
 const ServiceDetails = () => {
   const ServiceDetails = useLoaderData();
+  const [load, setLoad] = useState(false)
   const { description, img, Price, _id } = ServiceDetails;
-  console.log('servieid',_id);
+  console.log("servieid", _id);
   const { title, body } = description[0];
   const { user } = useContext(UserContext);
-  const[allReviews, setAllReviews] =useState([]);
+  const [allReviews, setAllReviews] = useState([]);
 
-
-     useEffect(()=>{
-         fetch('http://localhost:5000/reviews')
-         .then(res=>res.json())
-         .then(data=>{
-          const Rdata = data.filter(RevId =>RevId.serviceId === _id);
-          console.log('reviewid',Rdata.serviceId);
-          console.log(Rdata);
-
-          setAllReviews(Rdata)
-
-         }) 
-     },[])
-
-
- 
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        const ReviewData = data.filter((RevId) => RevId.serviceId === _id);
+        console.log("reviewid", ReviewData.serviceId);
+        
+      
+        setAllReviews(ReviewData);
+      });
+  }, [load]);
 
   const handleReviews = (event) => {
-    
     event.preventDefault();
     const form = event.target;
-    // const name = `${form.firstName.value} ${form.lastName.value}`;
     const email = user?.email || "unregistered";
-    // const rating = form.rating.value;
     const message = form.message.value;
 
     const review = {
@@ -47,9 +39,8 @@ const ServiceDetails = () => {
       Price,
       customer: user?.displayName,
       email,
-      // rating,
       message,
-      img,
+      image:user?.photoURL,
     };
 
     fetch("http://localhost:5000/reviews", {
@@ -93,15 +84,9 @@ const ServiceDetails = () => {
       <section className="border my-5 p-5">
         <form onSubmit={handleReviews} className="">
           <h4 className="text-3xl font-bold capitalize my-4">
-            {" "}
             please review {ServiceDetails.title}
           </h4>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {/* <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" />
-                    <input name="lastName" type="text" placeholder="Last Name" className="input input-ghost w-full  input-bordered" /> */}
-            {/* <input name="rating" type="number" placeholder="rating" className="input input-ghost w-full  input-bordered" required />
-                    <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly /> */}
-          </div>
+
           <textarea
             name="message"
             className="textarea textarea-bordered h-48 w-full mt-2"
@@ -109,27 +94,25 @@ const ServiceDetails = () => {
             required
           ></textarea>
 
-           <button className="btn btn-outline btn-primary" type="submit">
-                  {
-                    user?.email ?  <button type="submit">  Review</button>   : <Link to='/login'>   please login first  </Link>
-                  }
-            </button>
-
+          <button className="btn btn-outline btn-primary" type="submit">
+            {user?.email ? (
+              <button type="submit"> Review</button>
+            ) : (
+              <Link to="/login"> please login first </Link>
+            )}
+          </button>
         </form>
       </section>
 
       <section>
         <div>
-          {
-allReviews?.map(Reviews=><Messages
- key={Reviews._id}
- Reviews={Reviews}
-></Messages>)
-          }
+          {allReviews?.map((Reviews) => (
+            <Messages
+             setLoad={setLoad}
+             key={Reviews._id} Reviews={Reviews}></Messages>
+          ))}
         </div>
       </section>
-
-     
     </div>
   );
 };

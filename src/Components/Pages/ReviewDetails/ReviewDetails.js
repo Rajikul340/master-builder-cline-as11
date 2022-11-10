@@ -4,32 +4,39 @@ import { toast } from "react-toastify";
 
 const ReviewDetails = ({ reviews, handleDelete }) => {
   // console.log(reviews);
-  const { _id, title, Price, img, name, email, customer, serviceName, status } =
+  const { _id, title, Price, img, name, email, customer, serviceName, status, serviceId } =
     reviews;
     const [ reviewUpdate, setReviewUpdate] = useState(reviews)
 
   const handleUpdateForm = (event) => {
     event.preventDefault();
     const form = event.target;
-    const title = form.serviceName.value;
-    const Price = form.price.value;
-    const ratings = form.rating.value;
+    const value =form.value;
+    const field = form.name.value;
+    // const title = form.serviceName.value;
+    // const Price = form.price.value;
+    // const ratings = form.rating.value;
     // const title = form.message.value;
-    console.log(Price, img, ratings, serviceName);
+    const newField ={...reviewUpdate}
+     newField[field] = value;
+    // console.log(Price, img, ratings, serviceName);
+    setReviewUpdate(newField)
 
-    const servce = {
-     serviceName: title,
-      Price,
-      ratings,
-      description: [{ title: "" }],
-    };
-    setReviewUpdate(servce)
+        form.reset();
+
+    // const servce = {
+    //  serviceName: title,
+    //   Price,
+    //   ratings,
+    //   description: [{ title: "" }],
+    // };
+    // setReviewUpdate(servce)
    
   };
 
   const handleUpdate = (id) => {
     fetch(`http://localhost:5000/reviews/${id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -40,7 +47,8 @@ const ReviewDetails = ({ reviews, handleDelete }) => {
         console.log(data);
         toast.success('review update')
 
-      });
+      })
+      .catch(err=>console.error(err))
   };
 
   return (
@@ -93,13 +101,13 @@ const ReviewDetails = ({ reviews, handleDelete }) => {
                 className="input input-ghost w-full  input-bordered"
               />
               <input
-                name="price"
+                name="Price"
                 type="number"
                 placeholder="price"
                 className="input input-ghost w-full  input-bordered"
               />
               <input
-                name="rating"
+                name="ratings"
                 type="number"
                 placeholder="rating"
                 className="input input-ghost w-full  input-bordered"
@@ -108,7 +116,7 @@ const ReviewDetails = ({ reviews, handleDelete }) => {
 
               <button
                 onClick={() => handleUpdate(_id)}
-                type="submit"
+               
                 className="btn btn-outline"
               >
                 update
