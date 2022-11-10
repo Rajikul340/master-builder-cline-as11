@@ -16,6 +16,7 @@ const ReviewDetails = ({ singleReviews, handleDelete, setReviewUpdate }) => {
     status,
     serviceId,
   } = singleReviews;
+  
   setReviewUpdate(singleReviews);
   return (
     <tr>

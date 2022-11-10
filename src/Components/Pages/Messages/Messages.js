@@ -6,7 +6,11 @@ const Messages = ({ Reviews, setLoad }) => {
   const { user } = useContext(UserContext);
   // console.log(Reviews);
   const { message, image, customer, time } = Reviews;
-  const [revMessage, setRevMessage] = useState(message);
+  const [revMessage, setRevMessage] = useState(Reviews);
+  
+  const newmess = [...Reviews]
+  
+    
 
   return (
     <div>
