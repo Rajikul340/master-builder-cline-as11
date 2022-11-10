@@ -29,7 +29,7 @@ const AuthContex = ({children}) => {
 
     const logOut = ()=>{
         // setLoader(true)
-        // localStorage.removeItem('token');
+        localStorage.removeItem('token');
         return signOut(auth)
     }
 

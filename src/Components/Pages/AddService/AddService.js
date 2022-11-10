@@ -14,6 +14,9 @@ const AddService = () => {
     const ratings = form.rating.value;
     // const title = form.message.value;
     console.log(Price, img, ratings, serviceName);
+    const current= new Date();
+    const time = current.toLocaleTimeString("en-US");
+    const date = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
 
     const servce = {
       title: serviceName,
@@ -21,6 +24,8 @@ const AddService = () => {
       ratings,
       description: [{ title: "" }],
       img,
+      time,
+      date
     };
     fetch("http://localhost:5000/services", {
       method: "POST",

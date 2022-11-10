@@ -10,22 +10,21 @@ const ServiceDetails = () => {
   const ServiceDetails = useLoaderData();
   const [load, setLoad] = useState(false)
   const { description, img, Price, _id } = ServiceDetails;
-  console.log("servieid", _id);
   const { title, body } = description[0];
   const { user } = useContext(UserContext);
   const [allReviews, setAllReviews] = useState([]);
-
+        
   useEffect(() => {
     fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => {
         const ReviewData = data.filter((RevId) => RevId.serviceId === _id);
-        console.log("reviewid", ReviewData.serviceId);
         
-      
+          // console.log(ReviewData);
+          // get only matching comment
         setAllReviews(ReviewData);
       });
-  }, [load]);
+  }, []);
 
   const handleReviews = (event) => {
     event.preventDefault();
@@ -44,7 +43,8 @@ const ServiceDetails = () => {
       message,
       image:user?.photoURL,
       time, 
-      date
+      date,
+      img
     };
 
     fetch("http://localhost:5000/reviews", {

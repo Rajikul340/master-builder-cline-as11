@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../AuthContext/AuthContex';
 import { toast } from "react-toastify";
 import useTitle from '../useTitle/useTitle';
+import { Snniper } from '../Snniper/Snniper';
 
 
 
 const Register = () => {
     const{createUser, handleUpdate} = useContext(UserContext);
-    const[error, setError] = useState('');
+    const[loader, setLoader] =useState(false)
       useTitle('register')
 
     const handleSubmit = event =>{
        event.preventDefault();
+       setLoader(true)
         const form = event.target ;
         const name = form.name.value ;
         const email = form.email.value;
@@ -25,13 +27,11 @@ const Register = () => {
             const user=result.user ;
           console.log(user);
           handelprofileUpdate(name, photoURL)
+          setLoader(false)
             form.reset();
             toast.success('Register successfully')
         })
-        .catch(err=>{
-            setError(err)
-
-        })
+        .catch(err=> console.error(err))
     }
 
     const handelprofileUpdate = (name, photoURL) =>{
@@ -46,16 +46,17 @@ const Register = () => {
             const user=result.user ;
             console.log(user);
         })
-        .catch(err=>{
-           
-                console.log(error);
-        })
+        .catch(err=> console.log(err))
     }
-
+const content = loader && <Snniper/>
 
 
     return (
-        <div className='mx-auto lg:w-5/12 mb-4 border'>
+       <div>
+        {
+            content
+        }
+         <div className='mx-auto lg:w-5/12 mb-4 border'>
             <h3 className='text-center lg:text-3xl font-bold capitalize'>Please Register</h3>
             <form className=' p-4 ' onSubmit={handleSubmit}>
 
@@ -82,13 +83,14 @@ const Register = () => {
                   
                     <p className='text-center'>already have an account please <Link to='/login' className='text-red-300 underline'>login</Link></p>
                  {
-                    <p>{error}</p>
+                  
                  }
                 </div>
 
             </form>
 
         </div>
+       </div>
     );
 };
 
