@@ -9,7 +9,7 @@ import { Snniper } from "../Snniper/Snniper";
 const MyReviews = () => {
   const { user, logOut } = useContext(UserContext);
   const [reviews, setReviews] = useState([]);
-  const [ reviewUpdate, setReviewUpdate] = useState([])
+  const [reviewUpdate, setReviewUpdate] = useState([]);
   // console.log(reviews);
   useTitle("my-reviews");
 
@@ -49,23 +49,22 @@ const MyReviews = () => {
         });
     }
   };
- 
 
   const handleUpdateForm = (event) => {
     event.preventDefault();
     const form = event.target;
-    const value =form.value;
+    const value = form.value;
     const field = form.name.value;
     // const title = form.serviceName.value;
     // const Price = form.price.value;
     // const ratings = form.rating.value;
     // const title = form.message.value;
-    const newField ={...reviewUpdate}
-     newField[field] = value;
+    const newField = { ...reviewUpdate };
+    newField[field] = value;
     // console.log(Price, img, ratings, serviceName);
-    setReviewUpdate(newField)
+    setReviewUpdate(newField);
 
-        form.reset();
+    form.reset();
 
     // const servce = {
     //  serviceName: title,
@@ -74,7 +73,6 @@ const MyReviews = () => {
     //   description: [{ title: "" }],
     // };
     // setReviewUpdate(servce)
-   
   };
 
   const handleUpdate = (id) => {
@@ -83,17 +81,42 @@ const MyReviews = () => {
       headers: {
         "content-type": "application/json",
       },
-      body:JSON.stringify(reviewUpdate),
+      body: JSON.stringify(reviewUpdate),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success('review update')
-
+        toast.success("review update");
       })
-      .catch(err=>console.error(err))
+      .catch((err) => console.error(err));
   };
-
+//   <form
+//   onSubmit={handleUpdateForm}
+//   className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+// >
+//   <input
+//     name="serviceName"
+//     type="text"
+//     placeholder="service name"
+//     className="input input-ghost w-full  input-bordered"
+//   />
+//   <input
+//     name="Price"
+//     type="number"
+//     placeholder="price"
+//     className="input input-ghost w-full  input-bordered"
+//   />
+//   <input
+//     name="ratings"
+//     type="number"
+//     placeholder="rating"
+//     className="input input-ghost w-full  input-bordered"
+//     required
+//   />
+//   <label htmlFor="my-modal-6" className="btn">
+//     update
+//   </label>
+// </form>
 
   return (
     <div>
@@ -127,10 +150,8 @@ const MyReviews = () => {
                 // handleStatusUpdate={handleStatusUpdate}
               ></ReviewDetails>
             ))}
-            {/* The button to open modal */}
+              <input type="checkbox" id="my-modal" className="modal-toggle" />
 
-            {/* Put this part before </body> tag */}
-            <input type="checkbox" id="my-modal" className="modal-toggle" />
         <div className="modal">
           <div className="modal-box">
             <form onSubmit={handleUpdateForm}
@@ -157,9 +178,14 @@ const MyReviews = () => {
               <label htmlFor="my-modal-6" className="btn">update</label>
             </form>
 
+            <div className="modal-action">
+              <label htmlFor="my-modal" className="btn" type="submit">
+                close
+              </label>
+            </div>
           </div>
         </div>
-            
+         
           </tbody>
         </table>
       </div>
