@@ -14,9 +14,14 @@ const AddService = () => {
     const ratings = form.rating.value;
     // const title = form.message.value;
     console.log(Price, img, ratings, serviceName);
-    const current= new Date();
+    const current = new Date();
     const time = current.toLocaleTimeString("en-US");
-    const date = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+    const date =
+      current.getFullYear() +
+      "-" +
+      (current.getMonth() + 1) +
+      "-" +
+      current.getDate();
 
     const servce = {
       title: serviceName,
@@ -25,9 +30,9 @@ const AddService = () => {
       description: [{ title: "" }],
       img,
       time,
-      date
+      date,
     };
-    fetch("http://localhost:5000/services", {
+    fetch("https://maseter-builder-servar.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,6 +49,7 @@ const AddService = () => {
       })
       .catch((er) => console.error(er));
   };
+  // https://maseter-builder-servar.vercel.app
 
   return (
     <div className="border my-5 p-5">

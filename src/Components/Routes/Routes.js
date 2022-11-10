@@ -38,7 +38,9 @@ export const router = createBrowserRouter([
       {
         path: "/service/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://maseter-builder-servar.vercel.app/services/${params.id}`
+          ),
         element: <ServiceDetails></ServiceDetails>,
       },
       {
@@ -61,7 +63,6 @@ export const router = createBrowserRouter([
         path: "/blog",
         element: <Blogs></Blogs>,
       },
- 
     ],
   },
 ]);

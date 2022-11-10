@@ -12,7 +12,7 @@ const Service = () => {
 
   useEffect(() => {
     setLoader(true);
-    fetch("http://localhost:5000/services")
+    fetch("https://maseter-builder-servar.vercel.app/services")
       .then((res) => res.json())
       .then((data) => {
         console.log(data.length);

@@ -15,7 +15,7 @@ const ServiceDetails = () => {
   const [allReviews, setAllReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://maseter-builder-servar.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         const ReviewData = data.filter((RevId) => RevId.serviceId === _id);
@@ -52,7 +52,7 @@ const ServiceDetails = () => {
       img,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://maseter-builder-servar.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

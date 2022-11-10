@@ -21,7 +21,7 @@ const Login = () => {
         const currentUser = {
           email: user?.email,
         };
-        // fetch('http://localhost:5000/jwt',{
+        // fetch('https://maseter-builder-servar.vercel.app/jwt',{
         //   method:"POST",
         //   headers:{
         //     'content-type' : 'application/json'
@@ -57,7 +57,7 @@ const Login = () => {
           email: user?.email,
         };
         console.log(user);
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://maseter-builder-servar.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -12,7 +12,7 @@ const Home = () => {
   const [services, setServices] = useState([]);
   useTitle("home");
   useEffect(() => {
-    fetch("http://localhost:5000/home")
+    fetch("https://maseter-builder-servar.vercel.app/home")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
