@@ -6,22 +6,12 @@ import MyReviews from "../MyReviews/MyReviews";
 import ReviewDetails from "../ReviewDetails/ReviewDetails";
 
 const UpdateReviews = () => {
-    const data = useLoaderData();
-    console.log(data);
+  const data = useLoaderData();
+  console.log(data);
 
-
-
-const handleAddService= (event) =>{
-
-}
-       
- 
-
-
-
+  const handleAddService = (event) => {};
 
   return (
-
     <div className="border my-5 p-5">
       <h4 className="text-3xl font-bold capitalize my-4">update your review</h4>
       <form
@@ -48,13 +38,12 @@ const handleAddService= (event) =>{
           required
         />
 
-       <button type='submit' className="btn btn-outline">update</button>
-        
+        <button type="submit" className="btn btn-outline">
+          update
+        </button>
       </form>
     </div>
-
   );
-}
-
+};
 
 export default UpdateReviews;

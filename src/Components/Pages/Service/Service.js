@@ -28,11 +28,13 @@ const Service = () => {
         My services
       </h3>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {
-                 loader ? <Snniper/> :
-        services?.map((service) => (
-          <ServiceCard key={service._id} service={service}></ServiceCard>
-        ))}
+        {loader ? (
+          <Snniper />
+        ) : (
+          services?.map((service) => (
+            <ServiceCard key={service._id} service={service}></ServiceCard>
+          ))
+        )}
       </div>
     </div>
   );

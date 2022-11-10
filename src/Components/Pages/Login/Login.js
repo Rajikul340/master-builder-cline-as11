@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const[loader, setLoader] =useState(false);
+  const [loader, setLoader] = useState(false);
   useTitle("login");
   const googleLoginBtn = () => {
     googleLogin()
@@ -42,7 +42,7 @@ const Login = () => {
   };
 
   const handleLogin = (event) => {
-  setLoader(true)
+    setLoader(true);
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -67,7 +67,7 @@ const Login = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            setLoader(false)
+            setLoader(false);
             localStorage.setItem("token", data.token);
           });
         toast.success("login successfully");
@@ -76,77 +76,72 @@ const Login = () => {
       .catch((err) => {
         console.log(err);
       });
-
   };
-  const content = loader && <Snniper/> ;
+  const content = loader && <Snniper />;
 
   return (
-   <div>
-    {
-      content
-    }
-     <div className="mx-auto lg:w-5/12 mb-4 border">
+    <div>
+      {content}
+      <div className="mx-auto lg:w-5/12 mb-4 border">
+        <h3 className="text-center lg:text-3xl font-bold capitalize">
+          Please LogIn
+        </h3>
 
-<h3 className="text-center lg:text-3xl font-bold capitalize">
-  Please LogIn
-</h3>
+        <form className=" p-4 " onSubmit={handleLogin}>
+          <label htmlFor="name">Email</label>
+          <br />
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            className="border p-3 rounded-md w-5/6"
+          />
+          <br />
+          <label htmlFor="name">password</label>
+          <br />
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            className="border p-3 rounded-md w-5/6"
+          />
+          <br />
 
-<form className=" p-4 " onSubmit={handleLogin}>
+          <button
+            type="submit"
+            className=" btn btn-outline btn-primary w-64 lg:ml-20 mt-5"
+          >
+            Login
+          </button>
 
-  <label htmlFor="name">Email</label>
-  <br />
-  <input
-    type="email"
-    name="email"
-    placeholder="email"
-    className="border p-3 rounded-md w-5/6"
-  />
-  <br />
-  <label htmlFor="name">password</label>
-  <br />
-  <input
-    type="password"
-    name="password"
-    placeholder="password"
-    className="border p-3 rounded-md w-5/6"
-  />
-  <br />
+          <div className="text-center mt-5">
+            <p className="text-center">
+              create a new account please{" "}
+              <Link to="/register" className="text-red-300 underline">
+                register
+              </Link>
+            </p>
+          </div>
 
-<button type="submit"className=" btn btn-outline btn-primary w-64 lg:ml-20 mt-5"
->
-Login
-</button>
-
-  
-
-  <div className="text-center mt-5">
-    <p className="text-center">
-      create a new account please{" "}
-      <Link to="/register" className="text-red-300 underline">
-        register
-      </Link>
-    </p>
-  </div>
-
-  <div className=" my-3 w-80  ">
-    <button
-      onClick={googleLoginBtn}
-      className="flex gap-12 align-middle lg:ml-20 border border-blue-700 rounded-xl"
-    >
-      <img
-        src={logo}
-        className="lg:w-14 w-6 border rounded-box "
-        alt=""
-      />
-      <p className="font-bold lg:text-xl capitalize mr-2 lg:mt-1">
-        {" "}
-        google login
-      </p>
-    </button>
-  </div>
-</form>
-</div>
-   </div>
+          <div className=" my-3 w-80  ">
+            <button
+              onClick={googleLoginBtn}
+              className="flex gap-12 align-middle lg:ml-20 border border-blue-700 rounded-xl"
+            >
+              <img
+                src={logo}
+                className="lg:w-14 w-6 border rounded-box "
+                alt=""
+              />
+              <p className="font-bold lg:text-xl capitalize mr-2 lg:mt-1">
+                {" "}
+                google login
+              </p>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

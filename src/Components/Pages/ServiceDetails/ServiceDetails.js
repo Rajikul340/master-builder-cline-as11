@@ -8,20 +8,20 @@ import Messages from "../Messages/Messages";
 
 const ServiceDetails = () => {
   const ServiceDetails = useLoaderData();
-  const [load, setLoad] = useState(false)
+  const [load, setLoad] = useState(false);
   const { description, img, Price, _id } = ServiceDetails;
   const { title, body } = description[0];
   const { user } = useContext(UserContext);
   const [allReviews, setAllReviews] = useState([]);
-        
+
   useEffect(() => {
     fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => {
         const ReviewData = data.filter((RevId) => RevId.serviceId === _id);
-        
-          // console.log(ReviewData);
-          // get only matching comment
+
+        // console.log(ReviewData);
+        // get only matching comment
         setAllReviews(ReviewData);
       });
   }, []);
@@ -31,9 +31,14 @@ const ServiceDetails = () => {
     const form = event.target;
     const email = user?.email || "unregistered";
     const message = form.message.value;
-    const current= new Date();
+    const current = new Date();
     const time = current.toLocaleTimeString("en-US");
-    const date = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
+    const date =
+      current.getFullYear() +
+      "-" +
+      (current.getMonth() + 1) +
+      "-" +
+      current.getDate();
     const review = {
       serviceId: _id,
       serviceName: ServiceDetails?.title,
@@ -41,10 +46,10 @@ const ServiceDetails = () => {
       customer: user?.displayName,
       email,
       message,
-      image:user?.photoURL,
-      time, 
+      image: user?.photoURL,
+      time,
       date,
-      img
+      img,
     };
 
     fetch("http://localhost:5000/reviews", {
@@ -112,8 +117,10 @@ const ServiceDetails = () => {
         <div>
           {allReviews?.map((Reviews) => (
             <Messages
-             setLoad={setLoad}
-             key={Reviews._id} Reviews={Reviews}></Messages>
+              setLoad={setLoad}
+              key={Reviews._id}
+              Reviews={Reviews}
+            ></Messages>
           ))}
         </div>
       </section>
