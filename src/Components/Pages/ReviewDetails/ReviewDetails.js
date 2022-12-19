@@ -32,7 +32,7 @@ const ReviewDetails = ({ singleReviews, handleDelete, setReviewUpdate }) => {
           <div className="avatar">
             <div className="rounded  w-12 sm:h-12">
               {singleReviews?.img && (
-                <img src={singleReviews?.img} alt="photo" className="" />
+                <img src={singleReviews?.img} alt="" className="" />
               )}
             </div>
           </div>

@@ -15,10 +15,8 @@ const Service = () => {
     fetch("https://maseter-builder-servar.vercel.app/services")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.length);
         setServices(data);
-
-        setLoader(false);
+         setLoader(false);
       });
   }, []);
 
