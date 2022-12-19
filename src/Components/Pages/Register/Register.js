@@ -20,10 +20,11 @@ const Register = () => {
         const form = event.target ;
         const name = form.name.value ;
         const email = form.email.value;
-        const photoURL = form.photoURL.value
+        const photoURL = form.photoURL.files[0];
         const password = form.password.value ;
-        console.log(email , password, name, photoURL);
-       
+        console.log('photonew', photoURL);
+
+    
         createUser(email, password)
         .then(result =>{
             const user=result.user ;
@@ -43,18 +44,30 @@ const Register = () => {
     }
 
     const handelprofileUpdate = (name, photoURL) =>{
-
-        const profile ={
-          displayName:name,
-          photoURL:photoURL,
-        };
-
-         handleUpdate(profile)
-        .then((result)=>{
-            const user=result.user ;
-            console.log(user);
+        const formData = new FormData()
+        formData.append('image',photoURL)
+        fetch("https://api.imgbb.com/1/upload?key=19900dd0d8e1013079c1d14e32346566",{
+            method:"POST",
+            body:formData
         })
-        .catch(err=> console.log(err))
+        .then(res=>res.json())
+        .then(imgData=>{
+            console.log(imgData.data.url);
+            const profile ={
+                displayName:name,
+                photoURL:imgData?.data?.url,
+              };
+      
+               handleUpdate(profile)
+              .then((result)=>{
+                  const user=result.user ;
+                  console.log(user);
+              })
+              .catch(err=> console.log(err))
+        })
+       
+
+   
     }
 const content = loader && <Snniper/>
 
@@ -62,7 +75,7 @@ const content = loader && <Snniper/>
     return (
        <div>
         {
-            error ? <p className='text-center text'>{error}</p> : content
+            error ? <p className='text-center text-red-400'>{error}</p> : content
         }
          <div className='mx-auto lg:w-5/12 mb-4 border'>
             <h3 className='text-center lg:text-3xl font-bold capitalize'>Please Register</h3>
@@ -73,7 +86,7 @@ const content = loader && <Snniper/>
                 <input type="text" name='name' placeholder="name" className=" border p-3 rounded-md w-5/6 " /><br />
                 <label htmlFor="name">PhotoURL</label>
                 <br />
-                <input type="text" name='photoURL' placeholder="PhotoURL" className=" border p-3 rounded-md w-5/6 " /><br />
+                <input type="file" name='photoURL' placeholder="PhotoURL" className=" border p-3 rounded-md w-5/6 " /><br />
 
                 <label htmlFor="name">Email</label>
                 <br />
