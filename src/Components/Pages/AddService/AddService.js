@@ -59,7 +59,7 @@ const AddService = () => {
 <>
 {
   loader ? <p>Loading...</p> : 
-  <div className="border my-5 p-5">
+  <div className="border my-5 p-5 md:mx-24">
   <h4 className="text-3xl font-bold capitalize my-4">Add A service</h4>
   <form
     onSubmit={handleAddService}

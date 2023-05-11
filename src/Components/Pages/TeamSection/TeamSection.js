@@ -9,7 +9,8 @@ const TeamSection = () => {
           <div className="lg:w-6/12">
             <img
               src={img1}
-              className="max-w-sm rounded-lg shadow-2xl imgSize"
+              className="max-w-sm rounded-lg shadow-2xl "
+              alt="team-img"
             />
           </div>
           <div className="lg:w-6/12">

@@ -148,14 +148,14 @@ const MyReviews = () => {
                   <button
                     onClick={() => handleUpdate(reviewUpdate._id)}
                     htmlFor="my-modal-6"
-                    className="btn"
+                    className="btn  btn-primary"
                   >
                     update
                   </button>
                 </form>
 
                 <div className="modal-action">
-                  <label htmlFor="my-modal" className="btn" type="submit">
+                  <label htmlFor="my-modal" className="btn btn-primary" type="submit">
                     close
                   </label>
                 </div>

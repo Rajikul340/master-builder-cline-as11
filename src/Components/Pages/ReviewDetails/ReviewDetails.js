@@ -49,7 +49,7 @@ const ReviewDetails = ({ singleReviews, handleDelete, setReviewUpdate }) => {
       </td>
 
       <th>
-        <label htmlFor="my-modal" className="btn">
+        <label htmlFor="my-modal" className="btn btn-sm btn-primary">
           update
         </label>
       </th>

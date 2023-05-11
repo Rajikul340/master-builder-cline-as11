@@ -87,7 +87,7 @@ const Login = () => {
     <div>
       {error ? <p className="text-center text-red-600">{error}</p> : content}
       <div className="mx-auto lg:w-5/12 mb-4 border">
-        <h3 className="text-center lg:text-3xl font-bold capitalize">
+        <h3 className="text-center lg:text-3xl font-bold capitalize italic">
           Please LogIn
         </h3>
 
@@ -137,8 +137,8 @@ const Login = () => {
                 className="lg:w-14 w-6 border rounded-box "
                 alt=""
               />
-              <p className="font-bold lg:text-xl capitalize mr-2 lg:mt-1">
-                {" "}
+              <p className="font-bold lg:text-xl capitalize mr-2 lg:mt-1 italic">
+              
                 google login
               </p>
             </button>
