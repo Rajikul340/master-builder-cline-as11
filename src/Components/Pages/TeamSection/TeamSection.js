@@ -14,7 +14,7 @@ const TeamSection = () => {
             />
           </div>
           <div className="lg:w-6/12">
-            <h1 className="text-5xl font-bold">Work With Our Team</h1>
+            <h1 className="text-5xl font-bold text-[#3ABFF8] ">Work With Our Team</h1>
             <p className="py-6">
               How does an Working together as a team allows employees to draw
               from each other's experience and knowledge and further encourage

@@ -87,7 +87,7 @@ const Header = () => {
         </div>
         <Link
           to="/"
-          className="btn btn-ghost uppercase font-bold italic text-4xl"
+          className="uppercase font-bold italic text-4xl"
         >
           <h1>master builder</h1>
         </Link>
