@@ -1,10 +1,28 @@
-import React from "react";
+
+import { useInView } from "framer-motion";
+import React, { useRef } from "react";
 import { AiFillDribbbleSquare } from "react-icons/ai";
 
+
+
+
 const WhyChose = () => {
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+
   return (
-    <section className="mx-10 my-10">
-      <h1 className="uppercase flex text-[#3ABFF8]  items-center font-bold md:text-4xl text-2xl">
+    <section
+    ref={ref}
+  style={{
+    transform: isInView ? "none" : "translateX(-200px)",
+    opacity: isInView ? 1 : 0,
+    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+  }}
+    
+    className="mx-10 my-10">
+      <h1  className="uppercase flex text-[#3ABFF8]  items-center font-bold md:text-4xl text-2xl">
         <span>
           <AiFillDribbbleSquare size={32} />
         </span>

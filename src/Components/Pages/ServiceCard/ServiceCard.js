@@ -1,7 +1,8 @@
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
-var Rating = require("react-rating");
+import { motion } from 'framer-motion';
+
 
 const ServiceCard = ({ service }) => {
   const { Price, img, description, _id, title, ratings } = service;
@@ -9,13 +10,13 @@ const ServiceCard = ({ service }) => {
   return (
     <div>
       <div className="card bg-base-100 shadow-xl">
-        <figure className="px-10 pt-10">
-          <PhotoProvider>
-            <PhotoView src={img}>
-              <img src={img} style={{ objectFit: "cover" }} alt="" />
-            </PhotoView>
-          </PhotoProvider>
-        </figure>
+        <motion.div
+        whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} 
+         className="px-10 pt-10">
+      
+              <img src={img}  alt="" />
+        
+        </motion.div>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>
           <p>{`${

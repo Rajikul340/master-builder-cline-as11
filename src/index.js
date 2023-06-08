@@ -7,7 +7,7 @@ import AuthContex from './Components/AuthContext/AuthContex';
 import 'react-photo-view/dist/react-photo-view.css';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-
+import 'animate.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

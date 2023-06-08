@@ -1,9 +1,16 @@
 import React from "react";
 import img1 from "../../../image/blog-grid-2.jpg";
+import { motion } from 'framer-motion';
+import 'animate.css';
+
+
 
 const TeamSection = () => {
+
+
   return (
-    <div className="my-14">
+
+    <div  className="my-14 animate__animated animate__fadeIn ">
       <div className="hero  bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="lg:w-6/12">
