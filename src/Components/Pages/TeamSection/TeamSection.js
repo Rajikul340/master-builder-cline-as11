@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import img1 from "../../../image/blog-grid-2.jpg";
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import 'animate.css';
 
 
@@ -8,9 +8,21 @@ import 'animate.css';
 const TeamSection = () => {
 
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+
   return (
 
-    <div  className="my-14 animate__animated animate__fadeIn ">
+    <section
+    ref={ref}
+    style={{
+      transform: isInView ? "none" : "translateY(200px)",
+      opacity: isInView ? 1 : 0,
+      transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+    }}
+    
+    className="my-14  ">
       <div className="hero  bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="lg:w-6/12">
@@ -33,7 +45,7 @@ const TeamSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
