@@ -9,6 +9,8 @@ import FaqSection from "../Faqsection/Faqsection";
 import QualifiedEngineer from "../QualifiedEngineer/QualifiedEngineer";
 import ServiceSection from "../ServiceSection/ServiceSection";
 import { useInView } from "framer-motion";
+import ContactSection from "../Cantact/ContactSection";
+import ContactForm from "../Cantact/ContactForm";
 
 const Home = () => {
 
@@ -25,8 +27,10 @@ const Home = () => {
       <Showecase />
       <Success></Success>
       <QualifiedEngineer />
+       <ContactSection/>
       <ReviewSlider />
       <FaqSection />
+      <ContactForm/>
     </section>
   );
 };
